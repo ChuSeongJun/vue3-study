@@ -30,13 +30,14 @@ const routes = [
   {
     path: '/posts/create',
     name: 'PostCreate',
-    component: PostCreateView,
-    props: route => ({ id: parseInt(route.params.id) })
+    component: PostCreateView
   },
   {
     path: '/posts/:id',
     name: 'PostDetail',
-    component: PostDetailView
+    component: PostDetailView,
+    props: true
+    // props: route => ({ id: parseInt(route.params.id) }),
   },
   {
     path: '/posts/:id/edit',
