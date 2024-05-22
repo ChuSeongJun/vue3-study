@@ -3,23 +3,22 @@ import HomeView from '@/views/HomeView.vue';
 import AboutView from '@/views/AboutView.vue';
 import PostCreateView from '@/views/posts/PostCreateView.vue';
 import PostDetailView from '@/views/posts/PostDetailView.vue';
-import PostEditView from '@/views/posts/PostEditView.vue';
 import PostListView from '@/views/posts/PostListView.vue';
+import PostEditView from '@/views/posts/PostEditView.vue';
 import NotFoundView from '@/views/NotFoundView.vue';
 import NestedView from '@/views/nested/NestedView.vue';
 import NestedOneView from '@/views/nested/NestedOneView.vue';
 import NestedTwoView from '@/views/nested/NestedTwoView.vue';
 import NestedHomeView from '@/views/nested/NestedHomeView.vue';
-
 const routes = [
   {
     path: '/',
-    name: 'home',
+    name: 'Home',
     component: HomeView
   },
   {
     path: '/about',
-    name: 'about',
+    name: 'About',
     component: AboutView
   },
   {
@@ -45,6 +44,11 @@ const routes = [
     component: PostEditView
   },
   {
+    path: '/:pathMatch(.*)*',
+    name: 'NotFound',
+    component: NotFoundView
+  },
+  {
     path: '/nested',
     name: 'Nested',
     component: NestedView,
@@ -65,13 +69,11 @@ const routes = [
         component: NestedTwoView
       }
     ]
-  },
-  { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFoundView }
+  }
 ];
-
 const router = createRouter({
-  history: createWebHistory('/'),
+  history: createWebHistory(),
+  // history: createWebHashHistory(),
   routes
 });
-
 export default router;
